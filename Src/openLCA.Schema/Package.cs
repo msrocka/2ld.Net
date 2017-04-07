@@ -102,7 +102,8 @@ namespace openLCA.Schema
                 return "flow_properties";
             if (type == typeof(Flow))
                 return "flows";
-            
+            if (type == typeof(Process))
+                return "processes";
             return "others";
         }        
     }

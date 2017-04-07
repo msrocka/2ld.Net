@@ -37,26 +37,31 @@ namespace openLCA.Schema.Example
             steel.FlowProperties.Add(massRef);
             pack.Put(steel);
 
+            // create an output of 1kg steel
+            var steelOut = new Exchange();
+            steelOut.IsInput = false;
+            steelOut.Flow = Ref.Of(steel);
+            steelOut.FlowProperty = massRef.FlowProperty;
+            steelOut.Unit = new Ref("Unit", 
+                "20aadc24-a391-41cf-b340-3e4529f44bde", "kg");
+            steelOut.IsQuantitativeReference = true;
+            steelOut.Amount = 1.0;
+
+            // create the process
+            var steelProduction = new Process();
+            steelProduction.ID = "4d994382-bfab-4d5b-8d56-5135bdc039a2";
+            steelProduction.Name = "Steel production";
+            steelProduction.ProcessType = ProcessType.UNIT_PROCESS;
+            steelProduction.Exchanges.Add(steelOut);
+            pack.Put(steelProduction);
 
 
             /*
-            var cat1 = new Category();
-            cat1.ID = "abc";
-            var cat2 = new Category();
-            cat2.ID = "bca";
-            
-            if (!pack.Contains(cat1.GetType(), cat1.ID))
-                pack.Put(cat1);
-            if (!pack.Contains(cat2.GetType(), cat2.ID))
-                pack.Put(cat2);
-            pack.Close();
-            pack = new Package("C:/Users/Besitzer/Desktop/abc.zip");
+            TODO: show reading: 
             pack.Each<Category>(cat =>
             {
                 Console.WriteLine(cat.ToJson());
             });
-            pack.Close();
-            Console.WriteLine("Works!");
             */
 
             // close the Zip package

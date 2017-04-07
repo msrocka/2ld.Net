@@ -52,6 +52,7 @@
     <Compile Include="FlowProperty.cs" />
     <Compile Include="ModelType.cs" />
     <Compile Include="Package.cs" />
+    <Compile Include="Process.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ref.cs" />
     <Compile Include="RootEntity.cs" />
