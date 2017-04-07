@@ -1,6 +1,8 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.IO.Compression;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace openLCA.Schema
 {
@@ -31,18 +33,43 @@ namespace openLCA.Schema
             }
         }
 
+        public T Get<T>(string id) 
+        {
+            var type = typeof(T);
+            var path = getFolder(type) + "/" + id + ".json";
+            var entry = zip.GetEntry(path);
+            if (entry == null)
+                return default(T);
+            using (var reader = new StreamReader(entry.Open(), new UTF8Encoding(false)))
+            {
+                var json = reader.ReadToEnd();
+                return (T)JsonConvert.DeserializeObject(json, type);
+            }            
+        }
+
         private string getFolder(Entity e)
         {
             if (e.Type == null)
-                return "other";
+                return "others";
             switch (e.Type)
             {
                 case "Category":
                     return "categories";
                 default:
-                    return "otehr";
+                    return "others";
             }
         }
+
+        private string getFolder(Type type)
+        {
+            if (type == null)
+                return null;
+            if (type == typeof(Category))
+                return "categories";
+
+            return "others";
+        }
+        
     }
 }
 

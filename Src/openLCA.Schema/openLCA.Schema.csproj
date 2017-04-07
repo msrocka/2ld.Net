@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Category.cs" />
     <Compile Include="Entity.cs" />
+    <Compile Include="ModelType.cs" />
     <Compile Include="Package.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RootEntity.cs" />

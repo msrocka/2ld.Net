@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace openLCA.Schema
+﻿namespace openLCA.Schema
 {
     public class Category : RootEntity
     {
