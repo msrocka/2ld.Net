@@ -23,6 +23,22 @@ namespace openLCA.Schema.Example
             subCategory.Category = Ref.Of(topCategory);
             pack.Put(subCategory);
 
+            // create the steel flow and link it to mass
+            var steel = new Flow();
+            steel.ID = "fafb2e5d-db4e-4117-9e01-bc5097fc6735";
+            steel.Name = "Steel";
+            steel.Category = Ref.Of(subCategory);
+            steel.FlowType = FlowType.PRODUCT_FLOW;
+            var massRef = new FlowPropertyFactor();
+            massRef.ConversionFactor = 1.0;
+            massRef.IsReferenceFlowProperty = true;
+            massRef.FlowProperty = new Ref("FlowProperty", 
+                "93a60a56-a3c8-11da-a746-0800200b9a66", "Mass");
+            steel.FlowProperties.Add(massRef);
+            pack.Put(steel);
+
+
+
             /*
             var cat1 = new Category();
             cat1.ID = "abc";

@@ -77,6 +77,14 @@ namespace openLCA.Schema
             {
                 case "Category":
                     return "categories";
+                case "UnitGroup":
+                    return "unit_groups";
+                case "FlowProperty":
+                    return "flow_properties";
+                case "Flow":
+                    return "flows";
+                case "Process":
+                    return "processes";
                 default:
                     return "others";
             }
@@ -88,7 +96,13 @@ namespace openLCA.Schema
                 return null;
             if (type == typeof(Category))
                 return "categories";
-
+            if (type == typeof(UnitGroup))
+                return "unit_groups";
+            if (type == typeof(FlowProperty))
+                return "flow_properties";
+            if (type == typeof(Flow))
+                return "flows";
+            
             return "others";
         }        
     }
