@@ -45,11 +45,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategorizedEntity.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Entity.cs" />
+    <Compile Include="ModelType.cs" />
     <Compile Include="Package.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ref.cs" />
     <Compile Include="RootEntity.cs" />
+    <Compile Include="UnitGroup.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

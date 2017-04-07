@@ -54,6 +54,12 @@ namespace openLCA.Schema
             }
         }
 
+        public bool Contains(Type type, string id)
+        {
+            var path = getFolder(type) + "/" + id + ".json";
+            return zip.GetEntry(path) != null;
+        }
+
         private T read<T>(Type t, ZipArchiveEntry e)
         {
             using (var reader = new StreamReader(e.Open(), new UTF8Encoding(false)))

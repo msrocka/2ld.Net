@@ -7,7 +7,7 @@ namespace openLCA.Schema
         [JsonProperty(PropertyName = "name", Order = 2)]
         public string Name;
 
-        [JsonProperty(PropertyName = "description", Order = 3)]
+        [JsonProperty(PropertyName = "description", Order = 4)]
         public string Description;
     }
 }
