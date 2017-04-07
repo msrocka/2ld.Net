@@ -24,10 +24,22 @@ namespace openLCA.Schema.Tests
         }
 
         [Test]
-        public void TestCategoryType()
+        public void EachCategory()
         {
-            var cat = new Category();
-            Assert.AreSame(ModelType.CATEGORY, ModelType.Of(cat));
+            var cat1 = new Category();
+            cat1.ID = "abc";
+            var cat2 = new Category();
+            cat2.ID = "bca";
+            var pack = new Package("C:/Users/Besitzer/Desktop/abc.zip");
+            pack.Put(cat1);
+            pack.Put(cat2);
+            pack.Close();
+            pack = new Package("C:/Users/Besitzer/Desktop/abc.zip");
+            pack.Each<Category>(cat =>
+            {
+                Console.WriteLine(cat.ID);
+            });
+            pack.Close();
         }
 
     }
