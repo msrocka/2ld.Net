@@ -13,6 +13,12 @@ namespace openLCA.Schema
         [JsonProperty(PropertyName = "flowProperties", Order = 7)]
         public readonly List<FlowPropertyFactor> FlowProperties = new List<FlowPropertyFactor>();
 
+        [JsonProperty(PropertyName = "cas", Order = 8)]
+        public string CAS;
+
+        [JsonProperty(PropertyName = "formula", Order = 9)]
+        public string Formula;
+
     }
 
     public class FlowPropertyFactor : Entity
