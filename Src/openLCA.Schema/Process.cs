@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace openLCA.Schema
 {
-    public class Process : RootEntity
+    public class Process : CategorizedEntity
     {
         public override string Type => "Process";
 
